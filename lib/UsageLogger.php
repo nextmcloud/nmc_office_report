@@ -27,22 +27,13 @@ use OCP\Log\ILogFactory;
 use Psr\Log\LoggerInterface;
 
 class UsageLogger {
-	/** @var LoggerInterface */
-	private $parentLogger;
+
+	private LoggerInterface $parentLogger;
 
 	public function __construct(ILogFactory $logFactory, IConfig $config) {
-		$auditType = $config->getSystemValueString('log_type_audit', 'file');
-		$defaultTag = $config->getSystemValueString('syslog_tag', 'Nextcloud');
-		$auditTag = $config->getSystemValueString('syslog_tag_audit', $defaultTag);
-		$logFile = $config->getSystemValueString('logfile_audit', '');
-
-		if ($auditType === 'file' && !$logFile) {
-			$default = $config->getSystemValue('datadirectory', \OC::$SERVERROOT . '/data') . '/office.log';
-			// Legacy way was appconfig, now it's paralleled with the normal log config
-			$logFile = $config->getAppValue('admin_audit', 'logfile', $default);
-		}
-
-		$this->parentLogger = $logFactory->getCustomPsrLogger($logFile, $auditType, $auditTag);
+		$default = $config->getSystemValue('datadirectory', \OC::$SERVERROOT . '/data') . '/office.log';
+		$logFile = $config->getAppValue('logfile_office_report', 'logfile', $default);
+		$this->parentLogger = $logFactory->getCustomPsrLogger($logFile);
 	}
 
 	public function emergency($message, array $context = array()) {

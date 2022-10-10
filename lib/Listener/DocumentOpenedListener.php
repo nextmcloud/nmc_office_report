@@ -25,8 +25,9 @@ namespace OCA\NmcOfficeReport\Listener;
 use OCA\NmcOfficeReport\UsageLogger;
 use OCA\Richdocuments\Events\DocumentOpenedEvent;
 use OCP\EventDispatcher\Event;
+use OCP\EventDispatcher\IEventListener;
 
-class DocumentOpenedListener implements \OCP\EventDispatcher\IEventListener {
+class DocumentOpenedListener implements IEventListener {
 
 	private UsageLogger $usageLogger;
 

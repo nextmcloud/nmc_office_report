@@ -24,26 +24,23 @@ namespace OCA\NmcOfficeReport\AppInfo;
 
 use OCA\NmcOfficeReport\Listener\DocumentOpenedListener;
 use OCA\Richdocuments\Events\DocumentOpenedEvent;
+use OCP\AppFramework\App;
 use OCP\AppFramework\Bootstrap\IBootContext;
+use OCP\AppFramework\Bootstrap\IBootstrap;
 use OCP\AppFramework\Bootstrap\IRegistrationContext;
 
-class Application extends \OCP\AppFramework\App implements \OCP\AppFramework\Bootstrap\IBootstrap {
+class Application extends App implements IBootstrap {
 
 	public const APP_ID = 'nmc_office_report';
+
 	public function __construct(array $urlParams = []) {
 		parent::__construct(self::APP_ID, $urlParams);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function register(IRegistrationContext $context): void {
 		$context->registerEventListener(DocumentOpenedEvent::class, DocumentOpenedListener::class);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function boot(IBootContext $context): void {
 	}
 }
