@@ -1,0 +1,29 @@
+<?php
+
+declare(strict_types=1);
+
+class OC {
+	public static $SERVERROOT = 'foobar';
+}
+
+namespace OCA\Richdocuments\Events {
+	use OCP\Files\Node;
+
+	class DocumentOpenedEvent extends \OCP\EventDispatcher\Event {
+		private ?string $userId;
+		private Node $node;
+
+		public function __construct(?string $userId, Node $node) {
+			$this->userId = $userId;
+			$this->node = $node;
+		}
+
+		public function getUserId(): ?string {
+			return $this->userId;
+		}
+
+		public function getNode(): Node {
+			return $this->node;
+		}
+	}
+}

@@ -28,7 +28,6 @@ use OCP\EventDispatcher\Event;
 use OCP\EventDispatcher\IEventListener;
 
 class DocumentOpenedListener implements IEventListener {
-
 	private UsageLogger $usageLogger;
 
 	public function __construct(UsageLogger $usageLogger) {

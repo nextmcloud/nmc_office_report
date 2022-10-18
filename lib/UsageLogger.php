@@ -27,7 +27,6 @@ use OCP\Log\ILogFactory;
 use Psr\Log\LoggerInterface;
 
 class UsageLogger {
-
 	private LoggerInterface $parentLogger;
 
 	public function __construct(ILogFactory $logFactory, IConfig $config) {

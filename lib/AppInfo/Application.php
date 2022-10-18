@@ -30,7 +30,6 @@ use OCP\AppFramework\Bootstrap\IBootstrap;
 use OCP\AppFramework\Bootstrap\IRegistrationContext;
 
 class Application extends App implements IBootstrap {
-
 	public const APP_ID = 'nmc_office_report';
 
 	public function __construct(array $urlParams = []) {
