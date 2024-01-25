@@ -31,7 +31,7 @@ class UsageLogger {
 
 	public function __construct(ILogFactory $logFactory, IConfig $config) {
 		$default = $config->getSystemValue('datadirectory', \OC::$SERVERROOT . '/data') . '/office.log';
-		$logFile = $config->getSystemValue('logfile_office_report', 'logfile', $default);
+		$logFile = $config->getSystemValue('logfile_office_report', $default);
 		$this->parentLogger = $logFactory->getCustomPsrLogger($logFile);
 	}
 
