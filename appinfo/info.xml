@@ -9,7 +9,7 @@
 	<namespace>NmcOfficeReport</namespace>
 	<category>office</category>
 	<dependencies>
-		<nextcloud min-version="24" max-version="28" />
+		<nextcloud min-version="24" max-version="30" />
 	</dependencies>
 	<types>
 		<logging/>
